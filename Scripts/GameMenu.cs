@@ -7,7 +7,7 @@ public class GameMenu: MonoBehaviour
     [SerializeField] private Warning _warning;
     [SerializeField] private Music _press;
     [SerializeField] private Music _background;
-    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _startButton;
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _returnButton;
 
@@ -15,14 +15,14 @@ public class GameMenu: MonoBehaviour
 
     private void OnEnable()
     {
-        _restartButton.onClick.AddListener(OnRestartButtonClick);
+        _startButton.onClick.AddListener(OnStartButtonClick);
         _exitButton.onClick.AddListener(OnExitButtonClick);
         _returnButton.onClick.AddListener(OnReturnMenuButtonClick);
     }
 
     private void OnDisable()
     {
-        _restartButton.onClick.RemoveListener(OnRestartButtonClick);
+        _startButton.onClick.RemoveListener(OnStartButtonClick);
         _exitButton.onClick.RemoveListener(OnExitButtonClick);
         _returnButton.onClick.RemoveListener(OnReturnMenuButtonClick);
     }
@@ -33,7 +33,7 @@ public class GameMenu: MonoBehaviour
         _playSong = true;
     }
 
-    private void OnRestartButtonClick()
+    private void OnStartButtonClick()
     {
         PlayMusic();
         Time.timeScale = 1;
@@ -49,7 +49,7 @@ public class GameMenu: MonoBehaviour
     private void OnReturnMenuButtonClick()
     {
         PlayMusic();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void PressNo()
